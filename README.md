@@ -14,5 +14,9 @@ Playing with matching algorithms a bit
 - Is it worth to serialize the whole input?
 
 
+# questions
+
+- ?
+
 
 # vai se fuder
