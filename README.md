@@ -8,14 +8,14 @@ Playing with matching algorithms a bit
 - what about if list of jobs is huge (billons of jobs... or billon of workers)?
 - response has to contain data (3 jobs), no matter what...
 - is it worth to serialize the whole input?
-- should we cache all the possibilities from the beginning and keep results in some in-memory cache?
+- should I cache all the possibilities from the beginning and keep results in some in-memory cache?
 
 
 # questions
 
-- do we have to care about inactive workers?
+- do I have to care about inactive workers?
 - is it possible for a job to have 0 workers needed?
-- do we have to care about old jobs (start date before than the present day)?
+- do I have to care about old jobs (start date before than the present day)?
 
 
 # vai se fuder
