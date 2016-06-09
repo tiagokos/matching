@@ -16,7 +16,9 @@ Playing with matching algorithms a bit
 
 # questions
 
-- ?
+- do we have to care about inactive workers?
+- is it possible for a job to have 0 workers needed?
+- do we have to care about old jobs (start date before than the present day)?
 
 
 # vai se fuder
