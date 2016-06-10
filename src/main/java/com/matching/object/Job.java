@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Job {
 
 	private List<String> requiredCertificates;
-	private List<String> requiredSkills;
 	private boolean requiredDriversLicense;
 	private Location location;
 
@@ -24,14 +23,6 @@ public class Job {
 
 	public void setRequiredCertificates(List<String> requiredCertificates) {
 		this.requiredCertificates = requiredCertificates;
-	}
-
-	public List<String> getRequiredSkills() {
-		return requiredSkills;
-	}
-
-	public void setRequiredSkills(List<String> requiredSkills) {
-		this.requiredSkills = requiredSkills;
 	}
 
 	public boolean isRequiredDriversLicense() {

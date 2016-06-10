@@ -8,16 +8,20 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<spring.webmvc.version>4.2.4.RELEASE</spring.webmvc.version>
+		<spring.version>4.2.4.RELEASE</spring.version>
 		<jackson.version>2.6.5</jackson.version>
 		<geodesy.version>2.0.1</geodesy.version>
+		
+		<!-- Test -->
+		<junit.version>4.12</junit.version>
+		<servlet.version>3.0.1</servlet.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.webmvc.version}</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -28,6 +32,28 @@
 			<groupId>org.opensextant</groupId>
 			<artifactId>geodesy</artifactId>
 			<version>${geodesy.version}</version>
+		</dependency>
+		
+		<!-- Test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Provided by Web Server -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

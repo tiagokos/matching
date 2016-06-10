@@ -15,7 +15,6 @@ public class Worker {
 
 	private int userId;
 	private List<String> certificates;
-	private List<String> skills;
 	private boolean driversLicense;
 	private JobSearchAddress jobSearchAddress;
 
@@ -33,14 +32,6 @@ public class Worker {
 
 	public void setCertificates(List<String> certificates) {
 		this.certificates = certificates;
-	}
-
-	public List<String> getSkills() {
-		return skills;
-	}
-
-	public void setSkills(List<String> skills) {
-		this.skills = skills;
 	}
 
 	public boolean isDriversLicense() {

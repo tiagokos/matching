@@ -1,4 +1,4 @@
-package org.matching.filter;
+package com.matching.filter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,9 +65,11 @@ public class MatchingFilter {
 	 */
 	private double retrieveScore(Job job, Worker worker) {
 		double score = 0;
-		score += new BooleanCriteria(job.isRequiredDriversLicense(), worker.isDriversLicense()).getScore();
+		// Compute drivers license criteria
+		score += new BooleanCriteria(true, worker.isDriversLicense()).getScore();
+		// Compute certificates criteria
 		score += new ListCriteria<String>(job.getRequiredCertificates(), worker.getCertificates()).getScore();
-		score += new ListCriteria<String>(job.getRequiredSkills(), worker.getSkills()).getScore();
+		// Compute location criteria
 		score += new LocationCriteria(job.getLocation(), worker.getJobSearchAddress(), worker.getJobSearchAddress().getMaxJobDistance()).getScore();
 		// Location still missing
 		return score;

@@ -25,6 +25,12 @@ public class MatchingController {
 	@Autowired
 	private MatchingService matchingService;
 
+	/**
+	 * Receives worker Id, find it, try to match with existing jobs
+	 * 
+	 * @param workerId
+	 * @return
+	 */
 	@RequestMapping(value = "/matches/{workerId}", method = RequestMethod.GET)
 	public ResponseEntity<List<Job>> getMatches(@PathVariable("workerId") int workerId) {
 		// Delegates work to service

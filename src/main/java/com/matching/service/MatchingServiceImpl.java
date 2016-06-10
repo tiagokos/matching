@@ -2,10 +2,10 @@ package com.matching.service;
 
 import java.util.List;
 
-import org.matching.filter.MatchingFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.matching.filter.MatchingFilter;
 import com.matching.object.Job;
 import com.matching.object.Worker;
 
