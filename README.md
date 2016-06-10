@@ -22,6 +22,6 @@ Playing with matching algorithms a bit
 # resolutions
 
 - worker object does not have to be fully serialized since extra properties won`t be used
-- 
+- is a job with no certificates less meaningful for a worker than one with certificates that matches the workers ones? 
 
 # vai se fuder
