@@ -2,6 +2,9 @@ package com.matching.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.matching.object.Job;
 import com.matching.object.Worker;
 
@@ -11,11 +14,25 @@ import com.matching.object.Worker;
  * @author tiago
  *
  */
+@Service
 public class MatchingServiceImpl implements MatchingService {
 
-	public List<Job> getMatchingJobs(Worker worker) {
-		// TODO Auto-generated method stub
-		return null;
+	@Autowired
+	private WorkerService workerService;
+	
+	@Autowired
+	private JobService jobService;
+	
+	public List<Job> getMatchingJobs(int workerId) {
+		List<Job> matchedJobs = null;
+		
+		Worker worker = workerService.getById(workerId);
+		if (worker != null) {
+			List<Job> jobs = jobService.getAll();
+			matchedJobs = jobs.subList(0, 3);
+		}
+	    
+	    return matchedJobs;
 	}
 
 }

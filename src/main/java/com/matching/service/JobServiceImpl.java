@@ -1,6 +1,12 @@
 package com.matching.service;
 
+import java.util.Arrays;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.matching.object.Job;
 
@@ -10,11 +16,23 @@ import com.matching.object.Job;
  * @author tiago
  *
  */
+@Service
 public class JobServiceImpl implements JobService {
 
-	public List<Job> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	private static final String REST_URL = "http://swipejobs.azurewebsites.net/api/jobs";
 
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	public List<Job> getAll() {
+		List<Job> jobs = null;
+		
+		ResponseEntity<Job[]> jobsResponse = restTemplate.getForEntity(REST_URL, Job[].class);
+		if (jobsResponse.getBody() != null) {
+			jobs = Arrays.asList(jobsResponse.getBody());
+		}
+		
+		return jobs;
+	}
+	
 }

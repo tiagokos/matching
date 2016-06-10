@@ -1,22 +1,41 @@
 package com.matching.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.matching.object.Job;
+import com.matching.service.MatchingService;
+
+/**
+ * Matching Controller
+ * 
+ * @author tiago
+ *
+ */
 @RestController
 public class MatchingController {
 
-	@RequestMapping(value = "/match/{workerId}", method = RequestMethod.GET)
-	public ResponseEntity<Object> getMatches(@PathVariable("workerId") int workerId) {
-			Object object = null;
-			
-			// Load REST services
-			RestTemplate restTemplate = new RestTemplate();
-		    Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
-			
-			HttpStatus httpStatus = HttpStatus.OK;
-			if (object == null) {
-				httpStatus = HttpStatus.NOT_FOUND;
-			}
-			
-			return new ResponseEntity<Object>(object, httpStatus);
+	@Autowired
+	private MatchingService matchingService;
+
+	@RequestMapping(value = "/matches/{workerId}", method = RequestMethod.GET)
+	public ResponseEntity<List<Job>> getMatches(@PathVariable("workerId") int workerId) {
+		// Delegates work to service
+		List<Job> jobs = matchingService.getMatchingJobs(workerId);
+
+		HttpStatus httpStatus = HttpStatus.OK;
+		if (jobs == null) {
+			httpStatus = HttpStatus.NOT_FOUND;
+		}
+
+		return new ResponseEntity<List<Job>>(jobs, httpStatus);
 	}
-	
+
 }

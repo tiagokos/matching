@@ -3,7 +3,6 @@ package com.matching.service;
 import java.util.List;
 
 import com.matching.object.Job;
-import com.matching.object.Worker;
 
 /**
  * Matching Service
@@ -14,11 +13,11 @@ import com.matching.object.Worker;
 public interface MatchingService {
 	
 	/**
-	 * Retrieve recommended jobs for a worker
+	 * Retrieve recommended jobs for a worker id
 	 * 
-	 * @param worker
+	 * @param workerId
 	 * @return
 	 */
-	public List<Job> getMatchingJobs(Worker worker);
+	public List<Job> getMatchingJobs(int workerId);
 
 }
