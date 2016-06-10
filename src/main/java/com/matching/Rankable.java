@@ -1,4 +1,4 @@
-package com.matching.object;
+package com.matching;
 
 /**
  * Rankable Interface

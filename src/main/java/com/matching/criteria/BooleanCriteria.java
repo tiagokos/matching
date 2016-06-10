@@ -1,6 +1,6 @@
 package com.matching.criteria;
 
-import com.matching.object.Rankable;
+import com.matching.Rankable;
 
 /**
  * Boolean Criteria

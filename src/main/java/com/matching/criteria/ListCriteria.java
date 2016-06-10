@@ -2,7 +2,7 @@ package com.matching.criteria;
 
 import java.util.List;
 
-import com.matching.object.Rankable;
+import com.matching.Rankable;
 
 /**
  * List Criteria

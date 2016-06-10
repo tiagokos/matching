@@ -2,7 +2,7 @@ package com.matching.comparator;
 
 import java.util.Comparator;
 
-import com.matching.object.Rankable;
+import com.matching.Rankable;
 
 /**
  * Order objects by score

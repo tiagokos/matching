@@ -5,8 +5,8 @@ import org.opensextant.geodesy.Geodetic2DPoint;
 import org.opensextant.geodesy.Latitude;
 import org.opensextant.geodesy.Longitude;
 
+import com.matching.Rankable;
 import com.matching.object.Location;
-import com.matching.object.Rankable;
 
 /**
  * Location Criteria

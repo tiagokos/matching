@@ -1,5 +1,7 @@
 package com.matching.object;
 
+import com.matching.Rankable;
+
 /**
  * Wrapper class to rank objects
  * 
