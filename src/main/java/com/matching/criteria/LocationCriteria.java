@@ -33,17 +33,40 @@ public class LocationCriteria implements Rankable {
 	public double getScore() {
 		double score = 0;
 		
-		Geodetic2DPoint firstPoint = new Geodetic2DPoint(new Longitude(firstLocation.getLongitude()), new Latitude(firstLocation.getLatitude()));
-		Geodetic2DPoint secondPoint = new Geodetic2DPoint(new Longitude(secondLocation.getLongitude()), new Latitude(secondLocation.getLatitude()));
+		double distance = calculateDistance();
+		// If distance is acceptable, add extra score the closer it gets
+		if (distance <= maxDistance) {
+			score = 0.7;
+			// Place for improvements
+			if (maxDistance != 0) {
+				// Normalizing
+				score += 0.3 * (1 - ((maxDistance - distance) / maxDistance));
+			} else {
+				score += 0.3;
+			}			
+		} else { // If not, remove score the further it gets
+			score = 0.3;
+			// Place for improvements
+			score *= (1 / (distance / maxDistance));
+		}
+		return score;
+	}
+	
+	/**
+	 * Helper method to calculate distance in kms
+	 * 
+	 * @return
+	 */
+	public double calculateDistance() {
+		double distance = 0;
+		
+		Geodetic2DPoint firstPoint = new Geodetic2DPoint(new Longitude(String.valueOf(firstLocation.getLongitude())), new Latitude(String.valueOf(firstLocation.getLatitude())));
+		Geodetic2DPoint secondPoint = new Geodetic2DPoint(new Longitude(String.valueOf(secondLocation.getLongitude())), new Latitude(String.valueOf(secondLocation.getLatitude())));
 		
 		Geodetic2DArc arc = new Geodetic2DArc(secondPoint, firstPoint);
-		double distance = arc.getDistanceInMeters() / 1000.0;
+		distance = arc.getDistanceInMeters() / 1000.0;
 		
-		// If distance is acceptable, add extra score the closer it gets
-		
-		// If not, remove score the further it gets
-
-		return score;
+		return distance;
 	}
 
 	public Location getFirstLocation() {

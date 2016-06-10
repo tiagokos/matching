@@ -14,10 +14,10 @@ public class ScoreComparator implements Comparator<Rankable> {
 
 	@Override
 	public int compare(Rankable o1, Rankable o2) {
-		if (o1.getScore() < o2.getScore()) {
+		if (o1.getScore() > o2.getScore()) {
 			return -1;
 		}
-		if (o1.getScore() > o2.getScore()) {
+		if (o1.getScore() < o2.getScore()) {
 			return 1;
 		}
 		return 0;

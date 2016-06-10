@@ -9,6 +9,8 @@ import org.junit.Test;
 
 import com.matching.criteria.BooleanCriteria;
 import com.matching.criteria.ListCriteria;
+import com.matching.criteria.LocationCriteria;
+import com.matching.object.Location;
 
 /**
  * Unit tests for criteria
@@ -110,7 +112,81 @@ public class CriteriaTest {
 	
 	@Test
 	public void locationCriteriaTest() {
+		// Calculate distance 0
+		Location firstLocation = new Location();
+		firstLocation.setLatitude(0);
+		firstLocation.setLongitude(0);
+		Location secondLocation = new Location();
+		secondLocation.setLatitude(0);
+		secondLocation.setLongitude(0);
+		int maxDistance = 0;
+		LocationCriteria locationCriteria = new LocationCriteria(firstLocation, secondLocation, maxDistance);
+		double distance = locationCriteria.calculateDistance();
+		assertTrue(distance == 0.0d);
 		
+		// Calculate distance 1567
+		firstLocation = new Location();
+		firstLocation.setLatitude(0);
+		firstLocation.setLongitude(0);
+		secondLocation = new Location();
+		secondLocation.setLatitude(10.0);
+		secondLocation.setLongitude(10.0);
+		maxDistance = 0;
+		locationCriteria = new LocationCriteria(firstLocation, secondLocation, maxDistance);
+		distance = locationCriteria.calculateDistance();
+		assertTrue(distance > 1500 && distance < 1600);
+		
+		// Calculate score, good
+		// Distance = 157 km, max distance = 200 km
+		firstLocation = new Location();
+		firstLocation.setLatitude(0);
+		firstLocation.setLongitude(0);
+		secondLocation = new Location();
+		secondLocation.setLatitude(1);
+		secondLocation.setLongitude(1);
+		maxDistance = 200;
+		locationCriteria = new LocationCriteria(firstLocation, secondLocation, maxDistance);
+		double score = locationCriteria.getScore();
+		assertTrue(score >= 0.7);
+		
+		// Calculate score, too good
+		// Distance = 0 km, max distance = 0 km
+		firstLocation = new Location();
+		firstLocation.setLatitude(0);
+		firstLocation.setLongitude(0);
+		secondLocation = new Location();
+		secondLocation.setLatitude(0);
+		secondLocation.setLongitude(0);
+		maxDistance = 0;
+		locationCriteria = new LocationCriteria(firstLocation, secondLocation, maxDistance);
+		score = locationCriteria.getScore();
+		assertTrue(score > 0.7);
+		
+		// Calculate score, bad
+		// Distance = 157 km, max distance = 150 km
+		firstLocation = new Location();
+		firstLocation.setLatitude(0);
+		firstLocation.setLongitude(0);
+		secondLocation = new Location();
+		secondLocation.setLatitude(1);
+		secondLocation.setLongitude(1);
+		maxDistance = 150;
+		locationCriteria = new LocationCriteria(firstLocation, secondLocation, maxDistance);
+		score = locationCriteria.getScore();
+		assertTrue(score <= 3.0);
+		
+		// Calculate score, too bad
+		// Distance = 157 km, max distance = 1 km
+		firstLocation = new Location();
+		firstLocation.setLatitude(0);
+		firstLocation.setLongitude(0);
+		secondLocation = new Location();
+		secondLocation.setLatitude(1);
+		secondLocation.setLongitude(1);
+		maxDistance = 1;
+		locationCriteria = new LocationCriteria(firstLocation, secondLocation, maxDistance);
+		score = locationCriteria.getScore();
+		assertTrue(score < 3.0);
 	}
 
 }

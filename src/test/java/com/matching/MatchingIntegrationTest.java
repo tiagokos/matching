@@ -35,19 +35,19 @@ public class MatchingIntegrationTest {
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
 	
-//	@Test
-//	public void getEmptyCall() throws Exception {
-//		mockMvc.perform(get("/matches")).andExpect(status().isNotFound());
-//	}
+	@Test
+	public void getEmptyCall() throws Exception {
+		mockMvc.perform(get("/matches")).andExpect(status().isNotFound());
+	}
 	
 	@Test
 	public void getValidWorkerCall() throws Exception {
 		mockMvc.perform(get("/matches/1")).andExpect(status().isOk());
 	}
 	
-//	@Test
-//	public void getInvalidWorkerCall() throws Exception {
-//		mockMvc.perform(get("/matches/1000")).andExpect(status().isNotFound());
-//	}
+	@Test
+	public void getInvalidWorkerCall() throws Exception {
+		mockMvc.perform(get("/matches/1000")).andExpect(status().isNotFound());
+	}
 	
 }
