@@ -10,6 +10,7 @@
 	<properties>
 		<spring.webmvc.version>4.2.4.RELEASE</spring.webmvc.version>
 		<jackson.version>2.6.5</jackson.version>
+		<geodesy.version>2.0.1</geodesy.version>
 	</properties>
 
 	<dependencies>
@@ -22,6 +23,11 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.opensextant</groupId>
+			<artifactId>geodesy</artifactId>
+			<version>${geodesy.version}</version>
 		</dependency>
 	</dependencies>
 

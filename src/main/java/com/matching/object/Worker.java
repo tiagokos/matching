@@ -17,6 +17,7 @@ public class Worker {
 	private List<String> certificates;
 	private List<String> skills;
 	private boolean driversLicense;
+	private JobSearchAddress jobSearchAddress;
 
 	public int getUserId() {
 		return userId;
@@ -50,10 +51,12 @@ public class Worker {
 		this.driversLicense = driversLicense;
 	}
 
-	@Override
-	public String toString() {
-		return "Worker [userId=" + userId + ", certificates=" + certificates + ", skills=" + skills
-				+ ", driversLicense=" + driversLicense + "]";
+	public JobSearchAddress getJobSearchAddress() {
+		return jobSearchAddress;
+	}
+
+	public void setJobSearchAddress(JobSearchAddress jobSearchAddress) {
+		this.jobSearchAddress = jobSearchAddress;
 	}
 
 }

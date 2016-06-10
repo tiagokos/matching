@@ -2,6 +2,7 @@ package com.matching.service;
 
 import java.util.List;
 
+import org.matching.filter.MatchingFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,7 @@ public class MatchingServiceImpl implements MatchingService {
 		Worker worker = workerService.getById(workerId);
 		if (worker != null) {
 			List<Job> jobs = jobService.getAll();
-			matchedJobs = jobs.subList(0, 3);
+			matchedJobs = new MatchingFilter(jobs, worker).filter(3);
 		}
 	    
 	    return matchedJobs;
