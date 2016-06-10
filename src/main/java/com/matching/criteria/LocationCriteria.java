@@ -40,7 +40,7 @@ public class LocationCriteria implements Rankable {
 			// Place for improvements
 			if (maxDistance != 0) {
 				// Normalizing
-				score += 0.3 * (1 - ((maxDistance - distance) / maxDistance));
+				score += 0.3 * (1 - (distance / maxDistance));
 			} else {
 				score += 0.3;
 			}			
