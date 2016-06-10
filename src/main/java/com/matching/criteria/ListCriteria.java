@@ -36,7 +36,7 @@ public class ListCriteria<T> implements Rankable {
 		
 		// Generates score based on remaining values
 		// The more remaining values are, lower is the score
-		score = 1.0 * (listSize - remainingListSize / listSize);
+		score = 1.0 * ((listSize - remainingListSize) / listSize);
 		return score;		
 	}
 

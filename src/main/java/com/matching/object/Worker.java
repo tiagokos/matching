@@ -3,6 +3,7 @@ package com.matching.object;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Worker Object
@@ -15,6 +16,7 @@ public class Worker {
 
 	private int userId;
 	private List<String> certificates;
+	@JsonProperty(value = "hasDriversLicense")
 	private boolean driversLicense;
 	private JobSearchAddress jobSearchAddress;
 
