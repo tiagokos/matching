@@ -1,0 +1,20 @@
+{
+  "driverLicenseRequired": true,
+  "requiredCertificates": [
+    "The Encouraging Word Award",
+    "Outstanding Memory Award",
+    "Office Lunch Expert"
+  ],
+  "location": {
+    "longitude": "13.639369",
+    "latitude": "50.019486"
+  },
+  "billRate": "$19.77",
+  "workersRequired": 4,
+  "startDate": "2015-11-02T05:37:26.994Z",
+  "about": "Velit laboris cupidatat proident velit nisi sint do consequat enim minim in. Anim eu est exercitation consequat non adipisicing ipsum esse officia quis nulla eiusmod et officia. Aliquip qui dolor culpa qui est esse ut dolor magna dolore cupidatat.",
+  "jobTitle": "Arts and Crafts Designer",
+  "company": "Delphide",
+  "guid": "562f66aa1cba0990d25e4baf",
+  "jobId": 13
+}

@@ -1,0 +1,71 @@
+{
+  "rating": 5,
+  "isActive": true,
+  "certificates": [
+    "The Behind the Scenes Wonder",
+    "Outstanding Memory Award",
+    "Office Lunch Expert",
+    "The Risk Taker",
+    "The Encouraging Word Award",
+    "The Asker of Good Questions",
+    "Marvelous Multitasker",
+    "Excellence in Organization",
+    "Outstanding Innovator",
+    "Excellence in Humor and Entertainment",
+    "The Human Handbook",
+    "Healthy Living Promoter",
+    "Calm in the Eye of the Storm",
+    null,
+    null,
+    "Outside the Box Thinker",
+    "Outside the Box Thinker"
+  ],
+  "skills": [
+    "Creator of opportunities",
+    null
+  ],
+  "jobSearchAddress": {
+    "unit": "km",
+    "maxJobDistance": 20,
+    "longitude": "14.743945",
+    "latitude": "49.926759"
+  },
+  "transportation": "PUBLIC TRANSPORT",
+  "hasDriversLicense": true,
+  "availability": [
+    {
+      "title": "Friday",
+      "dayIndex": 5
+    },
+    {
+      "title": "Sunday",
+      "dayIndex": 7
+    },
+    {
+      "title": "Tuesday",
+      "dayIndex": 2
+    },
+    {
+      "title": "Monday",
+      "dayIndex": 1
+    },
+    {
+      "title": "Wednesday",
+      "dayIndex": 3
+    },
+    {
+      "title": "Saturday",
+      "dayIndex": 6
+    },
+    null
+  ],
+  "phone": "+1 (900) 402-2238",
+  "email": "roy.ortiz@rocklogic.tv",
+  "name": {
+    "last": "Ortiz",
+    "first": "Roy"
+  },
+  "age": 38,
+  "guid": "562f6647f066b00ac4bac82c",
+  "userId": 33
+}
