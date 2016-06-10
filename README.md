@@ -19,4 +19,8 @@ Playing with matching algorithms a bit
 - as a response, is it needed to retrieve the full JSON structure related to a Job? Is the Id enough?
 
 
+# resolutions
+- worker object does not have to be fully serialized since extra properties won`t be used
+- 
+
 # vai se fuder
