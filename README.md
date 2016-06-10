@@ -20,6 +20,7 @@ Playing with matching algorithms a bit
 
 
 # resolutions
+
 - worker object does not have to be fully serialized since extra properties won`t be used
 - 
 
