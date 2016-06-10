@@ -1,5 +1,15 @@
 package com.matching;
 
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+
+import com.matching.criteria.BooleanCriteria;
+import com.matching.criteria.ListCriteria;
+
 /**
  * Unit tests for criteria
  * 
@@ -7,5 +17,100 @@ package com.matching;
  *
  */
 public class CriteriaTest {
+	
+	@Test
+	public void booleanCriteriaTest() {
+		// Job = false
+		// Worker = true
+		boolean firstValue = false;
+		boolean secondValue = true;
+		BooleanCriteria booleanCriteria = new BooleanCriteria(firstValue, secondValue);
+		double score = booleanCriteria.getScore();
+		assertTrue(score == 0.0d);
+		
+		// Job = false
+		// Worker = false
+		firstValue = false;
+		secondValue = false;
+		booleanCriteria = new BooleanCriteria(firstValue, secondValue);
+		score = booleanCriteria.getScore();
+		assertTrue(score == 1.0d);
+		
+		// Job = true
+		// Worker = false
+		firstValue = true;
+		secondValue = false;
+		booleanCriteria = new BooleanCriteria(firstValue, secondValue);
+		score = booleanCriteria.getScore();
+		assertTrue(score == 0.0d);
+		
+		// Job = true
+		// Worker = true
+		firstValue = true;
+		secondValue = true;
+		booleanCriteria = new BooleanCriteria(firstValue, secondValue);
+		score = booleanCriteria.getScore();
+		assertTrue(score == 1.0d);
+	}
+	
+	@Test
+	public void listCriteriaTest() {
+		// Empty lists
+		List<String> firstList = new ArrayList<String>();
+		List<String> secondList = new ArrayList<String>();
+		ListCriteria<String> listCriteria = new ListCriteria<String>(firstList, secondList);
+		double score = listCriteria.getScore();
+		assertTrue(score == 0.0d);
+		
+		// One value lists
+		firstList = new ArrayList<String>();
+		firstList.add("abc");
+		secondList = new ArrayList<String>();
+		secondList.add("abc");
+		listCriteria = new ListCriteria<String>(firstList, secondList);
+		score = listCriteria.getScore();
+		assertTrue(score == 1.0d);
+		
+		// One value lists 2
+		firstList = new ArrayList<String>();
+		firstList.add("abc");
+		secondList = new ArrayList<String>();
+		listCriteria = new ListCriteria<String>(firstList, secondList);
+		score = listCriteria.getScore();
+		assertTrue(score == 0.0d);
+		
+		// One value lists 3
+		firstList = new ArrayList<String>();
+		secondList = new ArrayList<String>();
+		secondList.add("abc");
+		listCriteria = new ListCriteria<String>(firstList, secondList);
+		score = listCriteria.getScore();
+		assertTrue(score == 0.0d);
+		
+		// Half values
+		firstList = new ArrayList<String>();
+		firstList.add("abc");
+		firstList.add("def");
+		secondList = new ArrayList<String>();
+		secondList.add("abc");
+		listCriteria = new ListCriteria<String>(firstList, secondList);
+		score = listCriteria.getScore();
+		assertTrue(score == 0.5d);
+		
+		// Half values
+		firstList = new ArrayList<String>();
+		firstList.add("abc");
+		secondList = new ArrayList<String>();
+		secondList.add("abc");
+		secondList.add("def");
+		listCriteria = new ListCriteria<String>(firstList, secondList);
+		score = listCriteria.getScore();
+		assertTrue(score == 1.0d);
+	}
+	
+	@Test
+	public void locationCriteriaTest() {
+		
+	}
 
 }

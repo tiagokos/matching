@@ -29,14 +29,16 @@ public class ListCriteria<T> implements Rankable {
 		
 		// Gets original list size
 		int listSize = firstList.size();
-		// Remove all values contained in the second list
-		firstList.removeAll(secondList);
-		// Gets remaining list size
-		int remainingListSize = firstList.size();
-		
-		// Generates score based on remaining values
-		// The more remaining values are, lower is the score
-		score = 1.0 * ((listSize - remainingListSize) / listSize);
+		if (listSize > 0) {
+			// Remove all values contained in the second list
+			firstList.removeAll(secondList);
+			// Gets remaining list size
+			int remainingListSize = firstList.size();
+			
+			// Generates score based on remaining values
+			// The more remaining values are, lower is the score
+			score = (1.0 * listSize - remainingListSize) / listSize;
+		}
 		return score;		
 	}
 
