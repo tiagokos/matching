@@ -147,7 +147,7 @@ public class CriteriaTest {
 		maxDistance = 200;
 		locationCriteria = new LocationCriteria(firstLocation, secondLocation, maxDistance);
 		double goodScore = locationCriteria.getScore();
-		assertTrue(goodScore >= 0.7);
+		assertTrue(goodScore >= 0.5);
 		
 		// Calculate score, too good
 		// Distance = 0 km, max distance = 0 km

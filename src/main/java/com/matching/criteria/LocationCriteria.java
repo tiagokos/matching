@@ -31,23 +31,24 @@ public class LocationCriteria implements Rankable {
 
 	@Override
 	public double getScore() {
-		double score = 0;
+		double score = 0.5;
 		
 		double distance = calculateDistance();
 		// If distance is acceptable, add extra score the closer it gets
 		if (distance <= maxDistance) {
-			score = 0.7;
-			// Place for improvements
 			if (maxDistance != 0) {
 				// Normalizing
-				score += 0.3 * (1 - (distance / maxDistance));
+				score += 0.5 * (1 - (distance / maxDistance));
 			} else {
-				score += 0.3;
+				score += 0.5;
 			}			
-		} else { // If not, remove score the further it gets
-			score = 0.3;
-			// Place for improvements
-			score *= (1 / (distance / maxDistance));
+		} else { 
+			if (maxDistance != 0) {
+				// If not, remove score the further it gets
+				score *= (1 / (distance / maxDistance));
+			} else {
+				score -= 0.5;
+			}
 		}
 		return score;
 	}

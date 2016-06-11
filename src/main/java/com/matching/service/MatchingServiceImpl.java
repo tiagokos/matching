@@ -36,4 +36,20 @@ public class MatchingServiceImpl implements MatchingService {
 	    return matchedJobs;
 	}
 
+	public WorkerService getWorkerService() {
+		return workerService;
+	}
+
+	public void setWorkerService(WorkerService workerService) {
+		this.workerService = workerService;
+	}
+
+	public JobService getJobService() {
+		return jobService;
+	}
+
+	public void setJobService(JobService jobService) {
+		this.jobService = jobService;
+	}
+	
 }

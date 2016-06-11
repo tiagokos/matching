@@ -28,11 +28,19 @@ public class JobServiceImpl implements JobService {
 		List<Job> jobs = null;
 		
 		ResponseEntity<Job[]> jobsResponse = restTemplate.getForEntity(REST_URL, Job[].class);
-		if (jobsResponse.getBody() != null) {
+		if (jobsResponse != null && jobsResponse.getBody() != null) {
 			jobs = Arrays.asList(jobsResponse.getBody());
 		}
 		
 		return jobs;
+	}
+
+	public RestTemplate getRestTemplate() {
+		return restTemplate;
+	}
+
+	public void setRestTemplate(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
 	}
 	
 }

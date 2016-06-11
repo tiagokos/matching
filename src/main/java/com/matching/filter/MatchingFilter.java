@@ -71,7 +71,6 @@ public class MatchingFilter {
 		score += new ListCriteria<String>(job.getRequiredCertificates(), worker.getCertificates()).getScore();
 		// Compute location criteria
 		score += new LocationCriteria(job.getLocation(), worker.getJobSearchAddress(), worker.getJobSearchAddress().getMaxJobDistance()).getScore();
-		// Location still missing
 		return score;
 	}
 
